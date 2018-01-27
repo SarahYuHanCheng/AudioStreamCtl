@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<body>
+
+<h2>The XMLHttpRequest Object</h2>
+
+<p id="demo">Let AJAX change this text.</p>
+<ul id="songlist"></ul>
+<p>name: <input type="text" id="name"></p>
+<p>like: <input type="text" id="likeornot"></p>
+<!-- <button type="button" onclick="loadDoc()">Change Content</button> -->
+<!-- <button type="button" onclick="addsong()">addsong</button> -->
+<button type="button" id="showlist">Change Content</button>
+<button type="button" id="addsong">addsong</button>
+<script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" >
+
+function loadDoc() {
+  // var xhttp = new XMLHttpRequest();
+  // xhttp.open("GET", "likeornot.json", false);
+  // xhttp.send();
+  // document.getElementById("demo").innerHTML = xhttp.responseText;
+
+}
+function addsong() {
+ 
+  var newdata ={
+};
+	$.ajax({
+	type:'POST',
+	url:'/Users/sarahcheng/Documents/Master/2017fall/music/Volumio/Volumio2-UI/node_modules/websockets-streaming-audio/sarahtest/likeornot.json',
+	data:newdata,
+	success: function(newdatafromS){
+console.log("post done");
+$songlist.append('<li>name: '+songlist.name+', likeornot: '+songlist.like+'</li>');
+	}
+	});
+}
+</script>
+
+</body>
+</html>
