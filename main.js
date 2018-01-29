@@ -41,10 +41,10 @@ $(function(){
 			var the_res = eq_SerialNo.split(" ");
 			console.log(the_res[1]);
 			// $SerialNo;
-			eq+=the_res[0];
-			// console.log(eq);
-			document.getElementById("eq_ga").innerHTML = the_res[0];
-			document.getElementById("SerialNo").innerHTML = the_res[1];
+			// eq+=the_res[0];
+			console.log(the_res);
+			document.getElementById("eq_ga").innerHTML = the_res;
+			// document.getElementById("SerialNo").innerHTML = the_res[1];
 
 			},
 			error:function(){
@@ -70,12 +70,12 @@ $(function(){
 	});
 	$('#addlikeornot').on('click',function(){
 		var likeornot_rate = $("input[name=likeornot]:checked").val();
-		var SerialNo = document.getElementById('SerialNo').innerHTML;
+		// var SerialNo = document.getElementById('SerialNo').innerHTML;
 		document.getElementById('addlikeornot').disabled = true;
 		var newdata ={
 			SongName : $name.val(),
 			likeornot :likeornot_rate,
-			SerialNo : SerialNo,
+			// SerialNo : SerialNo,
 		}
 		var str = JSON.stringify(newdata);
 		console.log(str);
