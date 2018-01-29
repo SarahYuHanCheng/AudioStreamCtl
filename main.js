@@ -41,7 +41,7 @@ $(function(){
 			var the_res = eq_SerialNo.split(" ");
 			console.log(the_res[1]);
 			// $SerialNo;
-			// eq+=the_res[0];
+			eq+=the_res;
 			console.log(the_res);
 			document.getElementById("eq_ga").innerHTML = the_res;
 			// document.getElementById("SerialNo").innerHTML = the_res[1];
@@ -115,6 +115,28 @@ $(function(){
 				alert("error in playsong server");
 			}
 		});	
+		$.ajax({
+			type:'POST',
+			url:'http://192.168.1.199:8080',//rpi ip
+			data:playstr,
+			success: function(_newdata){
+			console.log(_newdata);
+			},
+			error:function(){
+				console.log("error");
+				alert("error in playsong rpi");
+			}
+		});	
+	});	
+	$('#Witheq').on('click',function(){
+		var url_str = $URL.val();
+		var urlstr = url_str.split("=");
+		var playdata ={
+			url:urlstr[1],
+			eq_ga:eq,
+		}
+		var playstr = JSON.stringify(playdata);
+		console.log(playstr);
 		$.ajax({
 			type:'POST',
 			url:'http://192.168.1.199:8080',//rpi ip

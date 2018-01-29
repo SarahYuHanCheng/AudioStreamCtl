@@ -20,20 +20,20 @@ server = http.createServer( function(req, res) {
                 console.log(cmdString);
                 child(cmdString, (err, stdout, stderr) => {
                   var the_res = stdout.split("\n");
-                  var to_player = stdout.slice(0,40);//ok
-                  var str_res=to_player +' '+the_res[10];
+                  var to_player = stdout.slice(0,44);//ok
+                  var str_res=to_player ;//+' '+the_res[10];
                     res.end(str_res);
                   // res.end(JSON.stringify(stdout));
                   // res.end(the_res[10]);//serialNo
                 });
             }else if(obj_body=='SongName'){
 
-                var cmdString = 'python eq_ga.py '+par_data.likeornot+' '+par_data.__UserID+' '+par_data.SerialNo;
+                var cmdString = 'python eq_ga.py '+par_data.likeornot+' '+par_data.__UserID;//+' '+par_data.SerialNo
                 console.log(cmdString);
                 child(cmdString, (err, stdout, stderr) => {
                     console.log("recv: "+stdout);
                   // var the_res = stdout.split("\n",2);
-                  // res.end(the_res[1]);
+                  res.end("get eq");
                 });
             }else if(obj_body=='PlaySong'){
                 // var cmdString = ' cd /Applications/Firefox.app/Contents/MacOS\n ./firefox https://www.youtube.com/watch?v='+par_data.url+'?autoplay=1';
