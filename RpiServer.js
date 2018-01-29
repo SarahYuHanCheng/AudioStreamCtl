@@ -38,10 +38,8 @@ server = http.createServer( function(req, res) {
                 // 	cmdString+='amixer -D equal cset numid='+numid+' '+gain;
                 // }
                 console.log("eq: "+par_data.eq_ga);
-            	console.log(par_data.eq_ga[0]);
-            	console.log(par_data.eq_ga[1]);
-            	console.log(par_data.eq_ga[2]);
-                'amixer -D equal cset numid='+numid+' '+gain
+                var each_ga = par_data.eq_ga.split("\n");
+                // 'amixer -D equal cset numid='+numid+' '+gain
                 
                 child(cmdString, (err, stdout, stderr) => {
                   // var the_res = stdout.split("\n",2);
