@@ -132,7 +132,7 @@ $(function(){
 		var url_str = $URL.val();
 		var urlstr = url_str.split("=");
 		var playdata ={
-			url:urlstr[1],
+			WithEq:urlstr[1],
 			eq_ga:eq,
 		}
 		var playstr = JSON.stringify(playdata);
