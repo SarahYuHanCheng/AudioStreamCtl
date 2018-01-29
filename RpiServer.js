@@ -31,17 +31,16 @@ server = http.createServer( function(req, res) {
                   
                 // });
             }else if(obj_body=='PlaySong'){
-            	console.log("in playson: "+par_data);
+            	console.log("in PlaySong: "+par_data);
             	// var cmdString = 'firefox https://www.youtube.com/watch?v='+par_data.url+'?autoplay=1';
                 var cmdString = 'aplay -D equal '+par_data.PlaySong+' &';
                 // for (var i = Things.length - 1; i >= 0; i--) {
                 // 	cmdString+='amixer -D equal cset numid='+numid+' '+gain;
                 // }
                 console.log("eq: "+par_data.eq_ga);
-                var PlayerEq_rec = par_data.PlayerEq;
-            	console.log(PlayerEq_rec);
-            	console.log(par_data.PlayerEq[0]);
-            	
+            	console.log(par_data.eq_ga[0]);
+            	console.log(par_data.eq_ga[1]);
+            	console.log(par_data.eq_ga[2]);
                 'amixer -D equal cset numid='+numid+' '+gain
                 
                 child(cmdString, (err, stdout, stderr) => {
