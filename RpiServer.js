@@ -33,6 +33,21 @@ server = http.createServer( function(req, res) {
                 //   // res.end(the_res[1]);
                   
                 // });
+            }else if(obj_body=='playsong'){
+            	console.log("in playson: "+par_data);
+            	// var cmdString = 'firefox https://www.youtube.com/watch?v='+par_data.url+'?autoplay=1';
+                var cmdString = 'aplay -D equal '+par_data.PlaySong+' &';
+                // for (var i = Things.length - 1; i >= 0; i--) {
+                // 	cmdString+='amixer -D equal cset numid='+numid+' '+gain;
+                // }
+                console.log("eq: "+par_data.eq_ga);
+                'amixer -D equal cset numid='+numid+' '+gain
+                
+                child(cmdString, (err, stdout, stderr) => {
+                  // var the_res = stdout.split("\n",2);
+                  // res.end(the_res[1]);
+                  
+                });
             }else if(obj_body=='Play_vol'){
             	// var vol_rec = par_data.Play_vol;
                 var cmdString = 'amixer --card=0 sset Digital '+par_data.Play_vol+'%';
@@ -61,6 +76,6 @@ server = http.createServer( function(req, res) {
 
 });
 
-port = 3000;
+port = 8080;
 server.listen(port);
-console.log('Listening at http://' + host + ':' + port);
+console.log('Listening at : ' + port);
