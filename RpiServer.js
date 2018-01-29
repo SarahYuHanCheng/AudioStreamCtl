@@ -40,7 +40,7 @@ server = http.createServer( function(req, res) {
                 
                 var each_ga = par_data.eq_ga.split("\n");
                 for (var i = 0; i < 10; i++) {
-                	cmdString+='amixer -D equal cset numid='+i+' '+each_ga[i]+' ; ';
+                	cmdString+='amixer -D equal cset numid='+i+' '+each_ga[i]+'; ';
                 }
                 // 'amixer -D equal cset numid='+numid+' '+gain
                 console.log("cmdString: "+cmdString);
