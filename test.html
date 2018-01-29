@@ -7,15 +7,60 @@
 
 <p id="demo">Let AJAX change this text.</p>
 <ul id="songlist"></ul>
-<p>UserID: <input type="text" id="UserID"></p>
-<button type="button" id="SendUserId">Change Content</button>
-<p> Serial number: <p id="SerialNo">30</p></p>
+<p>USER_ID: <input type="text" id="UserID"></p>
+<p>RPI_IP: <input type="text" id="UserID"></p>
+<button type="button" id="SendUserId">Send UserId</button>
+<p> SerialNo: <p id="SerialNo">30</p></p>
+<p> eq_ga: <p id="eq_ga">0</p></p>
 <p>SongName: <input type="text" id="SongName"></p>
+<p>SongURL: <input type="text" id="url"></p>
+<button type="button" id="playsong">play</button>
+<p> volume: <p id="volume">50</p></p>
+<button type="button" id="volup"> + </button>
+<button type="button" id="voldown"> - </button>
 <input type="radio" name="likeornot" value="1">like
 <input type="radio" name="likeornot" value="0">unlike
-<button type="button" id="addsong">addsong</button>
+<button type="button" id="addlikeornot">likeornot</button>
 <script type="text/javascript" src="main.js"></script>
+<!-- <script type="text/javascript" src="BufferLoader.js"></script> -->
+<!-- <script type="text/javascript" src="AudioStream.js"></script> -->
+<!-- <script type="text/javascript">
 
+window.onload = init;
+var context;
+var bufferLoader;
 
+function init() {
+  // Fix up prefixing
+  window.AudioContext = window.AudioContext || window.webkitAudioContext;
+  context = new AudioContext();
+
+  bufferLoader = new BufferLoader(
+    context,
+    [
+    'https://www.youtube.com/watch?v=4n-GCm89KFA',
+    'https://www.youtube.com/watch?v=aa2AhDaK_iY',
+      // '114_kisstherain.mp3',
+      // 'music1.wav',
+    ],
+    finishedLoading
+    );
+
+  bufferLoader.load();
+}
+
+function finishedLoading(bufferList) {
+  // Create two sources and play them both together.
+  var source1 = context.createBufferSource();
+  var source2 = context.createBufferSource();
+  source1.buffer = bufferList[0];
+  source2.buffer = bufferList[1];
+
+  source1.connect(context.destination);
+  source2.connect(context.destination);
+  source1.start(0);
+  source2.start(0);
+}
+</script> -->
 </body>
 </html>

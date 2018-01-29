@@ -16,22 +16,35 @@ server = http.createServer( function(req, res) {
            
             if(obj_body=='__UserID'){
 
-                var cmdString = 'python untitled3.py '+par_data.__UserID;
+                var cmdString = 'python eq_ga.py 2 '+par_data.__UserID+' 0';
                 console.log(cmdString);
                 child(cmdString, (err, stdout, stderr) => {
-                  var the_res = stdout.split("\n",2);
-                  res.end(the_res[1]);
+                  var the_res = stdout.split("\n");
+                  var to_player = stdout.slice(0,40);//ok
+                  var str_res=to_player +' '+the_res[10];
+                    res.end(str_res);
+                  // res.end(JSON.stringify(stdout));
+                  // res.end(the_res[10]);//serialNo
                 });
             }else if(obj_body=='SongName'){
 
-                var cmdString = 'python untitled3_.py '+par_data.likeornot+' '+par_data.SerialNo;
+                var cmdString = 'python eq_ga.py '+par_data.likeornot+' '+par_data.__UserID+' '+par_data.SerialNo;
                 console.log(cmdString);
                 child(cmdString, (err, stdout, stderr) => {
                     console.log("recv: "+stdout);
                   // var the_res = stdout.split("\n",2);
                   // res.end(the_res[1]);
                 });
+            }else if(obj_body=='PlaySong'){
+                var cmdString = ' cd /Applications/Firefox.app/Contents/MacOS\n ./firefox https://www.youtube.com/watch?v='+par_data.url+'?autoplay=1';
+                console.log(cmdString);
+                child(cmdString, (err, stdout, stderr) => {
+                  // var the_res = stdout.split("\n",2);
+                  // res.end(the_res[1]);
+                  
+                });
             }
+
         });
         req.on('end', function () {
             console.log("Body: " + body);
@@ -51,6 +64,6 @@ server = http.createServer( function(req, res) {
 });
 
 port = 3000;
-host = '127.0.0.1';
-server.listen(port, host);
-console.log('Listening at http://' + host + ':' + port);
+// host = '127.0.0.1';
+server.listen(port);
+console.log('Listening at ' + port);
