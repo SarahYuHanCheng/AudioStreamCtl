@@ -132,11 +132,29 @@ $(function(){
 		var url_str = $URL.val();
 		var urlstr = url_str.split("=");
 		var playdata ={
-			WithEq:urlstr[1],
+			WithEqga:urlstr[1],
 			eq_ga:eq,
 		}
 		var playstr = JSON.stringify(playdata);
 		console.log(playstr);
+		$.ajax({
+			type:'POST',
+			url:'http://192.168.1.199:8080',//rpi ip
+			data:playstr,
+			success: function(_newdata){
+			console.log(_newdata);
+			},
+			error:function(){
+				console.log("error");
+				alert("error in playsong rpi");
+			}
+		});	
+	});	
+	$('#stopsong').on('click',function(){
+		var playdata ={
+			StopSong:urlstr[1],
+		}
+		var playstr = JSON.stringify(playdata);
 		$.ajax({
 			type:'POST',
 			url:'http://192.168.1.199:8080',//rpi ip

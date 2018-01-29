@@ -31,7 +31,7 @@ server = http.createServer( function(req, res) {
                   
                 // });
             }else if(obj_body=='PlaySong'){
-            	console.log("in PlaySong: "+par_data);
+            	console.log("in PlaySong: "+par_data.PlaySong);
             	var cmdString = 'pkill aplay; aplay -D equal '+par_data.PlaySong+'; ';
                
                 child(cmdString, (err, stdout, stderr) => {
@@ -40,7 +40,7 @@ server = http.createServer( function(req, res) {
                   
                 });
                 
-            }else if(obj_body=='WithEq'){
+            }else if(obj_body=='WithEqga'){
             	var cmdString = "";
             	var each_ga = par_data.eq_ga.split("\n");
                 for (var i = 0; i < 10; i++) {
@@ -53,6 +53,15 @@ server = http.createServer( function(req, res) {
                   // var the_res = stdout.split("\n",2);
 
                   res.end("equaling");
+                  
+                });
+            }else if(obj_body=='StopSong'){
+            	// var vol_rec = par_data.Play_vol;
+                var cmdString = 'pkill aplay';
+                console.log(cmdString);
+                child(cmdString, (err, stdout, stderr) => {
+                  // var the_res = stdout.split("\n",2);
+                  res.end("stop");
                   
                 });
             }else if(obj_body=='Play_vol'){
