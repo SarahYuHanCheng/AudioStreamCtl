@@ -36,13 +36,13 @@ server = http.createServer( function(req, res) {
                   // res.end(the_res[1]);
                 });
             }else if(obj_body=='PlaySong'){
-                var cmdString = ' cd /Applications/Firefox.app/Contents/MacOS\n ./firefox https://www.youtube.com/watch?v='+par_data.url+'?autoplay=1';
-                console.log(cmdString);
-                child(cmdString, (err, stdout, stderr) => {
-                  // var the_res = stdout.split("\n",2);
-                  // res.end(the_res[1]);
+                // var cmdString = ' cd /Applications/Firefox.app/Contents/MacOS\n ./firefox https://www.youtube.com/watch?v='+par_data.url+'?autoplay=1';
+                // console.log(cmdString);
+                // child(cmdString, (err, stdout, stderr) => {
+                //   // var the_res = stdout.split("\n",2);
+                //   // res.end(the_res[1]);
                   
-                });
+                // });
             }
 
         });

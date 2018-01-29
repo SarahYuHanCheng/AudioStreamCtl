@@ -30,7 +30,7 @@ server = http.createServer( function(req, res) {
                 //   // res.end(the_res[1]);
                   
                 // });
-            }else if(obj_body=='playsong'){
+            }else if(obj_body=='PlaySong'){
             	console.log("in playson: "+par_data);
             	// var cmdString = 'firefox https://www.youtube.com/watch?v='+par_data.url+'?autoplay=1';
                 var cmdString = 'aplay -D equal '+par_data.PlaySong+' &';
@@ -61,7 +61,7 @@ server = http.createServer( function(req, res) {
             }
         });
         req.on('end', function () {
-            console.log("Body: " + body);
+            // console.log("Body: " + body);
         });
         res.writeHead(200, {'Content-Type': 'text/html'});
         // res.end(res[1]);
