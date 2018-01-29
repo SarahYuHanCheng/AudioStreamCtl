@@ -16,7 +16,7 @@ server = http.createServer( function(req, res) {
            
             if(obj_body=='__UserID'){
 
-                var cmdString = 'python eq_ga.py 2 '+par_data.__UserID+' 0';
+                var cmdString = 'python eq_ga.py 2 '+par_data.__UserID;//+' 0';
                 console.log(cmdString);
                 child(cmdString, (err, stdout, stderr) => {
                   var the_res = stdout.split("\n");
@@ -40,7 +40,7 @@ server = http.createServer( function(req, res) {
                 // console.log(cmdString);
                 // child(cmdString, (err, stdout, stderr) => {
                 //   // var the_res = stdout.split("\n",2);
-                //   // res.end(the_res[1]);
+                  res.end("server recv");
                   
                 // });
             }

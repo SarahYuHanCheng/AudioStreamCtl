@@ -129,10 +129,10 @@ $(function(){
 		});	
 	});	
 	$('#Witheq').on('click',function(){
-		var url_str = $URL.val();
-		var urlstr = url_str.split("=");
+		// var url_str = $URL.val();
+		// var urlstr = url_str.split("=");
 		var playdata ={
-			WithEqga:urlstr[1],
+			WithEqga:"equal",
 			eq_ga:eq,
 		}
 		var playstr = JSON.stringify(playdata);

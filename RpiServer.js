@@ -42,7 +42,9 @@ server = http.createServer( function(req, res) {
                 
             }else if(obj_body=='WithEqga'){
             	var cmdString = "";
+
             	var each_ga = par_data.eq_ga.split("\n");
+            	console.log("each_ga: "+each_ga);
                 for (var i = 0; i < 10; i++) {
                 	cmdString+='amixer -D equal cset numid='+(i+1)+' '+each_ga[i]+'; ';
                 }
